@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibtikarya - Co-founding Venture Studio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #00A3FF;
+            --primary-dark: #0077CC;
+            --secondary: #FF6B00;
+            --dark: #1A1D23;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --success: #28A745;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        .default-padding {
+            padding-top: 70px;
+            padding-bottom: 70px;
+        }
+
+
+        .navbar {
+            padding: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+            margin: 0 1rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .hero {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, rgba(0, 163, 255, 0.1) 0%, rgba(255, 107, 0, 0.05) 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .lead {
+            font-size: 1.25rem;
+            color: var(--gray);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 1rem;
+            z-index: -1;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .service-card {
+            padding: 2.5rem;
+            border-radius: 1rem;
+            background: white;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 2rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 163, 255, 0.1);
+            border-radius: 50%;
+            margin-bottom: 2rem;
+        }
+
+        .card-icon img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .link-arrow {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .link-arrow::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .link-arrow:hover::after {
+            transform: translateX(5px);
+        }
+
+        .pulse-hover:hover {
+            animation: pulse 1.5s infinite;
+        }
+
+        .solutions {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solutions::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 163, 255, 0.03) 0%, rgba(255, 107, 0, 0.02) 100%);
+            z-index: 0;
+        }
+
+        .solution-img {
+            position: relative;
+            transition: transform 0.5s ease;
+        }
+
+        .solution-img::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 1rem;
+            z-index: -1;
+            transition: all 0.3s ease;
+        }
+
+        .solution-img:hover {
+            transform: translateY(-5px);
+        }
+
+        .solution-img:hover::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .pulse-hover:hover {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-links h5 {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.25rem;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .testimonials {
+            position: relative;
+        }
+
+        .testimonial-card {
+            max-width: 700px;
+            padding: 3rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .stars {
+            color: #FFC107;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-style: italic;
+            color: var(--dark);
+        }
+
+        .testimonial-author img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.2);
+            border: none;
+            margin: 0 5px;
+        }
+
+        .carousel-indicators .active {
+            background-color: var(--primary);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 1;
+        }
+
+        .carousel-control-prev {
+            left: -20px;
+        }
+
+        .carousel-control-next {
+            right: -20px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 2rem;
+            }
+
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+        }
+
+        .faq {
+            background: linear-gradient(135deg, rgba(0, 163, 255, 0.03) 0%, rgba(255, 107, 0, 0.02) 100%);
+        }
+
+        .accordion-button {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+            background-color: white;
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: var(--primary);
+            background-color: white;
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300A3FF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        .accordion-body {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        .accordion-item {
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <svg width="150" height="40" viewBox="0 0 150 40">
+                <!-- Larger blue icon (now 40x40) -->
+                <path d="M10 10C10 4.47715 14.4772 0 20 0H40C45.5228 0 50 4.47715 50 10V30C50 35.5228 45.5228 40 40 40H20C14.4772 40 10 35.5228 10 30V10Z"
+                      fill="#00A3FF"/>
+                <path d="M20 5L30 25L40 5" stroke="white" stroke-width="2"/>
+                <path d="M25 20H35" stroke="white" stroke-width="2"/>
+
+                <!-- Text (position adjusted right) -->
+                <text x="60" y="28" font-family="Inter" font-weight="600" font-size="20" fill="#1A1D23">Ibtikarya</text>
+            </svg>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active fw-bold" href="#">For Founders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#">For Investors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-bold" href="#">Resources</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <button class="btn btn-outline me-2">Apply Now</button>
+                <button class="btn btn-primary">Explore</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Add this right after your navbar closing tag -->
+<section class="py-4 bg-light">
+    <div class="container">
+        <div class="row">
+            <!-- For Founders Column -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h3 class="mb-3 fw-bold">For Founders</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Bader</h5>
+                            <p class="small text-muted mb-2">AI Business Planner for your startup.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Withaq</h5>
+                            <p class="small text-muted mb-2">Secure Virtual Data Room for fundraising.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Namaa</h5>
+                            <p class="small text-muted mb-2">Community for founders to connect.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Join Network</h5>
+                            <p class="small text-muted mb-0">Become part of our investor community.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- For Investors Column -->
+            <div class="col-md-4 mb-4 mb-md-0">
+                <h3 class="mb-3 fw-bold ">For Investors</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Opportunities</h5>
+                            <p class="small text-muted mb-2">Explore investment opportunities via Withaq.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Blog Insights</h5>
+                            <p class="small text-muted mb-2">Stay updated with our latest insights.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Contact Us</h5>
+                            <p class="small text-muted mb-2">Reach out for inquiries and support.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Submit Idea</h5>
+                            <p class="small text-muted mb-0">Founders can submit their startup ideas.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- For Resources Column -->
+            <div class="col-md-4">
+                <h3 class="mb-3 fw-bold">For Resources</h3>
+                <ul class="list-unstyled">
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Blog</h5>
+                            <p class="small text-muted mb-2">Insights and articles for entrepreneurs.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Portfolio</h5>
+                            <p class="small text-muted mb-2">Showcasing our successful ventures.</p>
+                        </div>
+                    </li>
+                    <li class="mb-2 d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Contact</h5>
+                            <p class="small text-muted mb-2">Get in touch with our team.</p>
+                        </div>
+                    </li>
+                    <li class="d-flex align-items-start">
+                        <input type="checkbox" class="form-check-input me-2 mt-1" checked disabled>
+                        <div>
+                            <h5 class="mb-1">Join Us</h5>
+                            <p class="small text-muted mb-0">Become part of our innovative ecosystem.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Featured Insights Section -->
+        <div class="row mt-5 pt-4">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="mb-3 fw-bold">Featured Insights</h2>
+                <h4 class="mb-3">Latest Article</h4>
+                <p class="lead mb-4">Discover trends in startup innovation.</p>
+                <button class="btn btn-primary px-4">Read More</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="mb-4 animate__animated animate__fadeInUp">From Concept to Exit — We Build Startups.</h1>
+                <p class="lead mb-5 animate__animated animate__fadeInUp animate__delay-1s">
+                    Ibtikarya is a co-founding venture studio that generates ideas and transforms them into thriving
+                    startups.
+                    With our expert teams and AI-driven tools, we provide the essential infrastructure to make your
+                    vision investment-ready.
+                </p>
+                <button class="btn btn-primary btn-lg pulse-hover animate__animated animate__fadeInUp animate__delay-2s">
+                    Submit Your Idea
+                </button>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image animate__animated animate__fadeIn animate__delay-1s">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                         alt="Startup Illustration">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section class="solutions py-6 bg-white default-padding">
+    <div class="container">
+        <div class="section-header text-center mb-6">
+            <h2 class="display-4 mb-3 animate__animated animate__fadeInDown">Empower Your Startup Journey with Our
+                Innovative Solutions</h2>
+            <p class="lead text-muted animate__animated animate__fadeIn animate__delay-1s">Transform your vision into
+                reality with our comprehensive suite of tools and services</p>
+        </div>
+
+        <!-- Bader Solution -->
+        <div class="row align-items-center mb-7 animate__animated animate__fadeIn">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="pe-lg-5">
+                    <h3 class="display-5 mb-4">Transform Ideas into Successful Ventures with Ibtikarya</h3>
+                    <p class="lead mb-4">Bader is your AI-powered partner for crafting investor-ready business plans in
+                        minutes with smart insights and structured outputs.</p>
+                    <button class="btn btn-primary btn-lg pulse-hover">Try Bader</button>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                <div class="solution-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
+                         alt="AI Business Planning"
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Withaq Solution -->
+        <div class="row align-items-center mb-7 animate__animated animate__fadeIn animate__delay-1s">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="solution-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
+                         alt="Secure Data Room"
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-5">
+                    <h3 class="display-5 mb-4">Securely Manage Your Legal Documents and Deals with Withaq</h3>
+                    <p class="lead mb-4">Withaq provides a compliant environment with secure document workflows,
+                        built-in NDAs, and audit trails for all your fundraising needs.</p>
+                    <button class="btn btn-primary btn-lg pulse-hover">Access Withaq</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Namaa Solution -->
+        <div class="row align-items-center animate__animated animate__fadeIn animate__delay-2s">
+            <div class="col-lg-6 order-lg-1 order-2">
+                <div class="pe-lg-5">
+                    <h3 class="display-5 mb-4">Connect, Collaborate, and Grow with Namaa's Exclusive Community</h3>
+                    <p class="lead mb-4">Namaa is where founders and investors unlock new opportunities through AMAs,
+                        networking events, and knowledge sharing.</p>
+                    <button class="btn btn-primary btn-lg pulse-hover">Join Namaa</button>
+                </div>
+            </div>
+            <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+                <div class="solution-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80"
+                         alt="AI Business Planning"
+                         class="img-fluid rounded-4 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-6 bg-white default-padding">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="mb-3 animate__animated animate__fadeInUp">Transform Your Ideas into Reality with Our Key
+                Services</h2>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+                At Ibtikarya, we empower entrepreneurs with innovative tools to launch their startups.
+                Our services streamline the journey from concept to execution, ensuring every founder has the support
+                they need.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 animate__animated animate__fadeInUp">
+                <div class="service-card">
+                    <div class="card-icon mb-4">
+                        <img src="https://img.icons8.com/color/96/artificial-intelligence.png" alt="AI Icon">
+                    </div>
+                    <h3 class="mb-3">Bader: Your AI-Powered Business Plan Companion</h3>
+                    <p class="mb-4">Generate actionable, investor-ready business plans in minutes.</p>
+                    <a href="#" class="link-arrow">Learn more</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+                <div class="service-card">
+                    <div class="card-icon mb-4">
+                        <img src="https://img.icons8.com/color/96/security-checked.png" alt="Secure Icon">
+                    </div>
+                    <h3 class="mb-3">Withaq: Your Secure Virtual Data Room</h3>
+                    <p class="mb-4">Safeguard your legal documents and streamline fundraising with our compliant
+                        platform.</p>
+                    <a href="#" class="link-arrow">Discover</a>
+                </div>
+            </div>
+
+            <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+                <div class="service-card">
+                    <div class="card-icon mb-4">
+                        <img src="https://img.icons8.com/color/96/conference-call.png" alt="Community Icon">
+                    </div>
+                    <h3 class="mb-3">Namaa: Connect and Grow with Our Community</h3>
+                    <p class="mb-4">Join a vibrant network of founders and investors to share insights and
+                        opportunities.</p>
+                    <a href="#" class="link-arrow">Join Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-6 bg-light default-padding">
+    <div class="container">
+        <div class="section-header text-center mb-6">
+            <h2 class="display-4 mb-3">What Our Clients Say</h2>
+            <p class="lead text-muted">Hear from founders who transformed their ideas with Ibtikarya</p>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Testimonial 1 (Active) -->
+                <div class="carousel-item active">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="mb-4">
+                            "Ibtikarya transformed my startup idea into a thriving business. Their comprehensive support
+                            made all the difference in our journey."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Ali Al-Farsi"
+                                 class="rounded-circle mb-2">
+                            <h5 class="mb-1">Ali Al-Farsi</h5>
+                            <p class="text-muted small">CEO, Tech Innovations</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="mb-4">
+                            "The AI business planner saved us months of work and helped us secure funding in record
+                            time. Absolutely game-changing!"
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson"
+                                 class="rounded-circle mb-2">
+                            <h5 class="mb-1">Sarah Johnson</h5>
+                            <p class="text-muted small">Founder, GreenTech Solutions</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="carousel-item">
+                    <div class="testimonial-card mx-auto">
+                        <div class="stars mb-3">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote class="mb-4">
+                            "Withaq's secure data room gave investors confidence in our process. We closed our Series A
+                            30% faster than expected."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Michael Chen"
+                                 class="rounded-circle mb-2">
+                            <h5 class="mb-1">Michael Chen</h5>
+                            <p class="text-muted small">CTO, Finova</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="faq py-6 bg-white default-padding">
+    <div class="container">
+        <div class="section-header text-center mb-6">
+            <h2 class="display-4 mb-3 animate__animated animate__fadeInDown">FAQs</h2>
+            <p class="lead text-muted animate__animated animate__fadeIn animate__delay-1s">Your questions answered: Find out how we support founders and investors</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <!-- FAQ Item 1 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp">
+                        <h3 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                What is Ibtikarya's role?
+                            </button>
+                        </h3>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                Ibtikarya acts as a co-founder, partnering with you to develop your startup. We provide resources, expertise, and support throughout your entrepreneurial journey. Together, we turn your vision into a thriving business.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                        <h3 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How do I submit?
+                            </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                You can submit your idea through our Bader platform. Simply fill out the submission form with your concept and relevant details. Our team will review it and get back to you.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                        <h3 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                What happens if accepted?
+                            </button>
+                        </h3>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                If accepted, Ibtikarya becomes your co-founder, providing support in various aspects of your startup. We will work closely with you to refine your business plan and launch your venture. This partnership is designed to maximize your startup's potential.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+                        <h3 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Do I retain ownership?
+                            </button>
+                        </h3>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                Yes, you retain ownership of your startup. Our role is to support and enhance your vision, not to take control. We believe in empowering founders to lead their own ventures.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+                        <h3 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Are startups investor-ready?
+                            </button>
+                        </h3>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                Absolutely! We ensure that all startups are investor-ready before presenting them to our network. Each startup undergoes a thorough evaluation and preparation process. This guarantees that you are investing in viable and promising ventures.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-3s">
+                        <h3 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Can I lead investments?
+                            </button>
+                        </h3>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                Yes, you can lead or co-invest in startups through our platform. We encourage active participation from our investors. This collaborative approach helps foster a strong investment community.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="accordion-item mb-3 border-0 shadow-sm rounded-3 overflow-hidden animate__animated animate__fadeInUp animate__delay-3s">
+                        <h3 class="accordion-header" id="headingSeven">
+                            <button class="accordion-button collapsed px-4 py-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                What are platform benefits?
+                            </button>
+                        </h3>
+                        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body px-4 py-3">
+                                Our platform offers a comprehensive ecosystem for both founders and investors. You gain access to valuable resources, expert guidance, and a supportive community. This enhances your chances of success and growth.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-6  default-padding"
+         style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h2 class="mb-3 animate__animated animate__fadeInLeft fw-bold">Join Our Exclusive Investor Network</h2>
+                <p class="lead mb-0 animate__animated animate__fadeInLeft animate__delay-1s">Gain early access to
+                    exclusive deal flow and discover investor-ready startups in our platform.</p>
+            </div>
+            <div class="col-lg-4 animate__animated animate__fadeInRight animate__delay-1s">
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Your Email Here">
+                    <button class="btn btn-light">Request Access</button>
+                </form>
+                <p class="small mt-2">By clicking Request Access, you agree to our Terms and Conditions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <svg width="150" height="40" viewBox="0 0 150 40">
+                    <!-- Larger blue icon (now 40x40) -->
+                    <path d="M10 10C10 4.47715 14.4772 0 20 0H40C45.5228 0 50 4.47715 50 10V30C50 35.5228 45.5228 40 40 40H20C14.4772 40 10 35.5228 10 30V10Z"
+                          fill="#00A3FF"/>
+                    <path d="M20 5L30 25L40 5" stroke="white" stroke-width="2"/>
+                    <path d="M25 20H35" stroke="white" stroke-width="2"/>
+
+                    <!-- Text (position adjusted right) -->
+                    <text x="60" y="28" font-family="Inter" font-weight="600" font-size="20" fill="white">Ibtikarya
+                    </text>
+                </svg>
+                <p>Ibtikarya is a co-founding venture studio that generates ideas and transforms them into thriving
+                    startups.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="footer-links">
+                    <h5>Quick Access</h5>
+                    <a href="#">Home</a>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Ecosystem</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="footer-links">
+                    <h5>Resources</h5>
+                    <a href="#">Blog</a>
+                    <a href="#">Portfolio</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Events</a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-4">
+                <div class="footer-links">
+                    <h5>Join</h5>
+                    <a href="#">Newsletter</a>
+                    <a href="#">Namaa Community</a>
+                    <a href="#">Investor Circle</a>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <div class="footer-links">
+                    <h5>Legal</h5>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookies Settings</a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-4" style="border-color: rgba(255, 255, 255, 0.1);">
+        <div class="text-center">
+            <p class="small mb-0">© 2025 Ibtikarya. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- GSAP for animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
